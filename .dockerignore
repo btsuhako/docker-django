@@ -1,0 +1,11 @@
+.DS_Store
+.dockerignore
+.git/
+.gitignore
+README.rst
+README.md
+*.pyc
+__pycache__
+docker-compose.yml
+.env
+.env.sample

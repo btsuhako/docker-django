@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - mysql:/var/lib/mysql
+    expose:
+      - "3306"
+    env_file: .env
+
+  redis:
+    image: redis:4
+    expose:
+      - "6379"
+
+  django:
+    build:
+      context: .
+    depends_on:
+      - mysql
+      - redis
+    ports:
+      - "8000:8000"
+    env_file: .env
+
+volumes:
+  mysql:
